@@ -1,7 +1,6 @@
 import { IProductDocument, IProductRequest } from '@/@types/IProduct';
 import { Product } from '@/models/product';
 import { ProductRepository } from '../product';
-import { productFormatter } from '@/utils/productFormatter';
 
 export class MongoProductRepository implements ProductRepository {
   constructor() {}
@@ -22,13 +21,19 @@ export class MongoProductRepository implements ProductRepository {
 
   async findProductById(id: string) {
     const product = await Product.findById(id);
-    console.log('prod', product);
+
+    return product;
+  }
+
+  async deleteById(id: string) {
+    const product = await Product.findOneAndDelete({
+      _id: id,
+    });
+
     return product;
   }
 
   async searchMany() {}
-
-  async deleteById(id: string) {}
 
   async updateById(id: string) {}
 }
