@@ -18,7 +18,7 @@ export async function createProduct(
       req.body
     );
 
-    const createProductUseCase = await makeCreateProductUseCase();
+    const createProductUseCase = makeCreateProductUseCase();
 
     const { product } = await createProductUseCase.execute({
       name,

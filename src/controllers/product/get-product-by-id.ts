@@ -14,7 +14,7 @@ export async function getProductById(
   try {
     const { id } = getProductParamsSchema.parse(req.params);
 
-    const getProductByIdUseCase = await makeGetProductByIdUseCase();
+    const getProductByIdUseCase = makeGetProductByIdUseCase();
     const { product } = await getProductByIdUseCase.execute(id);
 
     return res.status(200).send({ product });

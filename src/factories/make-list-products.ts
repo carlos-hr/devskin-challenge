@@ -1,7 +1,7 @@
 import { MongoProductRepository } from '@/repositories/mongo/product';
 import { ListProductsUseCase } from '@/use-cases/list-products';
 
-export async function makeListProductUseCase() {
+export function makeListProductUseCase() {
   const productRepository = new MongoProductRepository();
   const listProductUseCase = new ListProductsUseCase(productRepository);
 

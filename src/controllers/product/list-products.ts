@@ -13,7 +13,7 @@ export async function listProducts(
 
   try {
     const { page } = listProductsQuerySchema.parse(req.query);
-    const listProductUseCase = await makeListProductUseCase();
+    const listProductUseCase = makeListProductUseCase();
 
     const { products } = await listProductUseCase.execute(page);
 
