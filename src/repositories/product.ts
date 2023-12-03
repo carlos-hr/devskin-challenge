@@ -1,11 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { IProductRequest, IProductResponse } from '@/@types/IProduct';
+import { IProductRequest, IProductDocument } from '@/@types/IProduct';
 
 export interface ProductRepository {
-  create: (data: IProductRequest) => Promise<IProductResponse>;
-  findMany: (page: number) => Promise<any>;
+  create: (data: IProductRequest) => Promise<IProductDocument>;
+  findMany: (page: number) => Promise<IProductDocument[]>;
+  findProductById: (id: string) => Promise<IProductDocument | null>;
   searchMany: () => Promise<any>;
   deleteById: (id: string) => Promise<any>;
   updateById: (id: string) => Promise<any>;
-  findProductById: (id: string) => Promise<any>;
 }
