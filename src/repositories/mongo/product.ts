@@ -8,9 +8,8 @@ export class MongoProductRepository implements ProductRepository {
 
   async create(data: IProductRequest) {
     const product: IProductDocument = await Product.create(data);
-    const formatedProduct = productFormatter(product);
 
-    return formatedProduct;
+    return product;
   }
 
   async findMany(page: number) {
@@ -18,11 +17,13 @@ export class MongoProductRepository implements ProductRepository {
       .limit(10)
       .skip((page - 1) * 10);
 
-    const formatedProductsList = products.map((product) =>
-      productFormatter(product)
-    );
+    return products;
+  }
 
-    return formatedProductsList;
+  async findProductById(id: string) {
+    const product = await Product.findById(id);
+    console.log('prod', product);
+    return product;
   }
 
   async searchMany() {}
@@ -30,6 +31,4 @@ export class MongoProductRepository implements ProductRepository {
   async deleteById(id: string) {}
 
   async updateById(id: string) {}
-
-  async findProductById(id: string) {}
 }
