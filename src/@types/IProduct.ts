@@ -12,6 +12,13 @@ export interface IUpdateProductRequest {
   price?: number;
 }
 
+export interface ISearchProductRequest {
+  page: number;
+  minPrice?: number;
+  maxPrice?: number;
+  keyword?: string;
+}
+
 export interface IProductResponse {
   name: string;
   description: string;

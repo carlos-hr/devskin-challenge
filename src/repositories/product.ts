@@ -2,6 +2,7 @@ import {
   IProductRequest,
   IProductDocument,
   IUpdateProductRequest,
+  ISearchProductRequest,
 } from '@/@types/IProduct';
 
 export interface ProductRepository {
@@ -13,5 +14,5 @@ export interface ProductRepository {
     id: string,
     data: IUpdateProductRequest
   ) => Promise<IProductDocument>;
-  searchMany: () => Promise<IProductDocument[]>;
+  searchProducts: (data: ISearchProductRequest) => Promise<IProductDocument[]>;
 }
