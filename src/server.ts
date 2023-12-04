@@ -4,6 +4,7 @@ import { productRoutes } from './controllers/product/route';
 
 import { mongooseClient } from './db/mongoose';
 import { errorHandler } from './middlewares/error';
+import { env } from './env';
 
 async function initServer() {
   await mongooseClient();
@@ -17,8 +18,8 @@ async function initServer() {
 
   app.use(errorHandler);
 
-  app.listen(3333, () => {
-    console.log('server is running on http://localhost:3333');
+  app.listen(env.PORT, () => {
+    console.log(`server is running on http://localhost:${env.PORT}`);
   });
 }
 
