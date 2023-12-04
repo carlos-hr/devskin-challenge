@@ -14,7 +14,7 @@ export class DeleteProductUseCase {
       throw new InvalidIdError();
     }
 
-    const product = await this.productRepository.deleteById(productId);
+    const product = await this.productRepository.deleteProduct(productId);
     const formatedProduct = productFormatter(product);
 
     if (!formatedProduct.id) {
