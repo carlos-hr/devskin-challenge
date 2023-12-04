@@ -12,7 +12,6 @@ export async function getProductById(
   });
 
   try {
-    console.log('here');
     const { id } = getProductParamsSchema.parse(req.params);
 
     const getProductByIdUseCase = makeGetProductByIdUseCase();
