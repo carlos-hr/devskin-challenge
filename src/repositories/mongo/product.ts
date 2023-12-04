@@ -1,4 +1,8 @@
-import { IProductDocument, IProductRequest } from '@/@types/IProduct';
+import {
+  IProductDocument,
+  IProductRequest,
+  IUpdateProductRequest,
+} from '@/@types/IProduct';
 import { Product } from '@/models/product';
 import { ProductRepository } from '../product';
 
@@ -33,7 +37,16 @@ export class MongoProductRepository implements ProductRepository {
     return product;
   }
 
-  async searchMany() {}
+  async updateProduct(id: string, data: IUpdateProductRequest) {
+    const product = (await Product.findOneAndUpdate(
+      {
+        _id: id,
+      },
+      data
+    )) as unknown as IProductDocument;
 
-  async updateProduct(id: string) {}
+    return product;
+  }
+
+  async searchMany() {}
 }

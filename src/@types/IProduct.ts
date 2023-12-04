@@ -6,6 +6,12 @@ export interface IProductRequest {
   price: number;
 }
 
+export interface IUpdateProductRequest {
+  name?: string;
+  description?: string;
+  price?: number;
+}
+
 export interface IProductResponse {
   name: string;
   description: string;
