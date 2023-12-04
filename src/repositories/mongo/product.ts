@@ -39,22 +39,17 @@ export class MongoProductRepository implements ProductRepository {
   }
 
   async deleteProduct(id: string) {
-    const product = (await Product.findOneAndDelete({
-      _id: id,
-    })) as unknown as IProductDocument;
+    const product = await Product.findOneAndDelete({ _id: id }, { new: true });
 
-    return product;
+    return product as IProductDocument;
   }
 
   async updateProduct(id: string, data: IUpdateProductRequest) {
-    const product = (await Product.findOneAndUpdate(
-      {
-        _id: id,
-      },
-      data
-    )) as unknown as IProductDocument;
+    const product = await Product.findOneAndUpdate({ _id: id }, data, {
+      new: true,
+    });
 
-    return product;
+    return product as IProductDocument;
   }
 
   async searchProducts({
