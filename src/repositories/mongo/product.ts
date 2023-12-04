@@ -16,8 +16,6 @@ interface Query {
 }
 
 export class MongoProductRepository implements ProductRepository {
-  constructor() {}
-
   async create(data: IProductRequest) {
     const product: IProductDocument = await Product.create(data);
 
