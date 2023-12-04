@@ -1,5 +1,5 @@
 import { ProductRepository } from '@/repositories/product';
-import { productFormatter } from '@/utils/productFormatter';
+import { productFormatter } from '../utils/productFormatter';
 
 export class ListProductsUseCase {
   constructor(private productRepository: ProductRepository) {}
