@@ -18,8 +18,6 @@ A aplicação foi projetada seguindo os princípios do design SOLID para garanti
 
 - **Jest:** Testes unitários foram escritos utilizando a biblioteca Jest para garantir a qualidade e confiabilidade do código.
 
-- **Esbuild:** O compilador Esbuild foi escolhido para melhorar o desempenho durante o desenvolvimento.
-
 # Estrutura do Projeto
 
 A estrutura do projeto foi organizada para facilitar a navegação e compreensão do código. Abaixo estão as respostas às perguntas específicas do teste:
@@ -61,6 +59,8 @@ GET /products/search?page=1&minPrice=20&maxPrice=50&keyword=laptop
 ## Parte 4: Testes
 
 Para testar as funcionalidades da aplicação, foram implementados testes unitários utilizando a biblioteca Jest. Foram escolhidas duas rotas principais para serem testadas:
+
+**Devido ao design da aplicação não foi possível testar alguns casos de erro, já que usamos o zod para validar o body da requisição logo na etapa inicial de iteração (controller) e para o teste unitário seria mais apropriado testar os use cases que são responsáveis pelas regras de negócios**
 
 1. **Rota de Criação de Produto:**
 
